@@ -5,3 +5,5 @@ work/
 .project
 .vscode/
 .settings/
+.idea/
+*.iml

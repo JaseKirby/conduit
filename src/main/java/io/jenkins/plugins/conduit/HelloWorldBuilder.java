@@ -29,21 +29,19 @@ public class HelloWorldBuilder extends Builder implements SimpleBuildStep {
     return this.name;
   }
 
-	@Override
-	public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener)
+  @Override
+  public void perform(Run<?, ?> run, FilePath workspace, Launcher launcher, TaskListener listener)
 			throws InterruptedException, IOException {
-		listener.getLogger().println("What up " + this.name + "!");
+    listener.getLogger().println("What up " + this.name + "!");
   }
   
   @Symbol("conduitHello")
   @Extension(dynamicLoadable = YesNoMaybe.NO)
-  public static final class DescriptorImpl extends BuildStepDescriptor<Builder> {
-
+  public static final class HelloWorldBuilderDescriptor extends BuildStepDescriptor<Builder> {
     @Override
     public boolean isApplicable(Class<? extends AbstractProject> jobType) {
       return false;
     }
-
   }
 
 }
